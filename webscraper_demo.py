@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 # Set up User-Agent rotation
 ua = UserAgent()
 
-@retry(wait_exponential_multiplier=1000, wait_exponential_max=10000)
+@retry(wait_exponential_multiplier=2000, wait_exponential_max=10000)
 def make_request(url):
     session = requests.Session()
     session.headers.update({'User-Agent': ua.random})
